@@ -3,7 +3,6 @@ import requests
 import json
 import boto3
 from datetime import datetime
-import dagster as dg
 
 # Function to call API and save response
 API_KEY = "fdcf5105b0mshb60125cb25ee57ep1565acjsndd740fc93e14"
@@ -37,8 +36,8 @@ def fetch_flight_prices():
 @job
 def flight_price_collection():
     fetch_flight_prices()
-    
-daily_schedule = dg.ScheduleDefinition(
-    job=flight_price_collection,
-    cron_schedule="0 0 * * *",  # Runs at midnight daily
-)
+
+# Corrected Schedule Definition using 'schedule' directly
+@schedule(cron_schedule="0 0 * * *", job=flight_price_collection)  # Runs at midnight daily
+def daily_flight_price_collection(_):
+    pass
