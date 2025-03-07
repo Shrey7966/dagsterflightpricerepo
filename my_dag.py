@@ -36,9 +36,8 @@ def fetch_flight_prices():
 @job
 def flight_price_collection():
     fetch_flight_prices()
-
-# Define the schedule for the flight price collection job (runs once a day)
-@schedule(cron_schedule="0 0 * * *", job=flight_price_collection)
-def daily_flight_price_collection(context):
-    # You can add custom logic here if necessary
-    return {}
+    
+daily_schedule = dg.ScheduleDefinition(
+    j job=flight_price_collection,
+    cron_schedule="0 0 * * *",  # Runs at midnight daily
+)
