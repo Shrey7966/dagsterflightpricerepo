@@ -1,3 +1,4 @@
-code_locations:
+locations:
   - location_name: my_dagster_project
-    module_name: my_dag  # Name of your main DAG file (without .py)
+    code_source:
+      module_name: my_dag  # This should match your DAG file name (without .py)
