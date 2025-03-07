@@ -1,5 +1,4 @@
 locations:
   - location_name: my_dagster_project
     code_source:
-      module_name: my_dagster_project.repositories  # Correct reference to repositories.py
-
+      module_name: my_dagster_project.repositories  # Ensure it points to repositories.py
