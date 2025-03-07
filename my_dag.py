@@ -38,6 +38,6 @@ def flight_price_collection():
     fetch_flight_prices()
     
 daily_schedule = dg.ScheduleDefinition(
-    j job=flight_price_collection,
+    job=flight_price_collection,
     cron_schedule="0 0 * * *",  # Runs at midnight daily
 )
