@@ -1,4 +1,4 @@
 locations:
   - location_name: my_dagster_project
     code_source:
-      module_name: my_dag  # This should match your DAG file name (without .py)
+      module_name: my_dagster_project.my_dag  # Specify the subdirectory path
