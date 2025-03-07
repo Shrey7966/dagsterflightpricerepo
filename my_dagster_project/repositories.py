@@ -6,4 +6,3 @@ defs = Definitions(
     jobs=[flight_price_collection],  # List your jobs
     schedules=[daily_schedule],  # List your schedules
 )
-)
