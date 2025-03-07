@@ -3,6 +3,7 @@ import requests
 import json
 import boto3
 from datetime import datetime
+import dagster as dg
 
 # Function to call API and save response
 API_KEY = "fdcf5105b0mshb60125cb25ee57ep1565acjsndd740fc93e14"
