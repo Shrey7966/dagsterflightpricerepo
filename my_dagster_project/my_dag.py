@@ -15,10 +15,17 @@ def fetch_flight_prices():
         "x-rapidapi-key": API_KEY,
         "x-rapidapi-host": "flights-sky.p.rapidapi.com"
     }
+    
+    # Fetch date (when we are collecting data)
+    fetch_date = datetime.today().strftime('%Y-%m-%d')
+
+    # Depart date (when the flight is scheduled)
+    depart_date = (datetime.today() + timedelta(days=21)).strftime('%Y-%m-%d') 
+
     params = {
         "fromEntityId": "BLR",
         "toEntityId": "JFK",
-        "departDate": datetime.today().strftime('%Y-%m-%d'),
+        "departDate": depart_date,
         "currency": "INR",
         "cabinClass": "economy"
     }
@@ -28,11 +35,12 @@ def fetch_flight_prices():
     
     # Save JSON response to S3
     s3_bucket = "flightpricedataanalysis"
-    s3_key = f"flight_prices/{datetime.today().strftime('%Y-%m-%d')}/flight_data_test.json"
+    s3_key = f"flight_prices/{fetch_date}/{depart_date}.json"  # New path format
     
     s3 = boto3.client("s3")
     s3.put_object(Bucket=s3_bucket, Key=s3_key, Body=json.dumps(data))
-    print(f"Saved data to s3://{s3_bucket}/{s3_key}")
+    
+    print(f"✅ Saved data to s3://{s3_bucket}/{s3_key}")
 
 @job
 def flight_price_collection():
