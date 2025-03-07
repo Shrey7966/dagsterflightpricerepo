@@ -1,4 +1,5 @@
 locations:
   - location_name: my_dagster_project
     code_source:
-      module_name: my_dagster_project.my_dag  # Specify the subdirectory path
+      module_name: my_dagster_project.repositories  # Correct reference to repositories.py
+
