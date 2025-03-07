@@ -1,0 +1,10 @@
+[tool.poetry]
+name = "my_dagster_project"
+version = "0.1.0"
+description = "Dagster pipeline"
+authors = ["Your Name <your@email.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+dagster = "^1.6.0"
+dagster-cloud = "^1.6.0"
