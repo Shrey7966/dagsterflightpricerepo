@@ -36,7 +36,7 @@ def fetch_flight_prices():
     
     # Save JSON response to S3
     s3_bucket = "flightpriceanalysisproject"
-    s3_key = f"flight_prices/{fetch_date}/{depart_date}.json"  # New path format
+    s3_key = f"s3://flightpriceanalysisproject/flight_prices/{fetch_date}/{depart_date}.json"  # New path format
     
     s3 = boto3.client("s3")
     s3.put_object(Bucket=s3_bucket, Key=s3_key, Body=json.dumps(data))
