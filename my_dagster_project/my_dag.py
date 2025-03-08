@@ -21,7 +21,7 @@ def fetch_flight_prices():
     fetch_date = datetime.today().strftime('%Y-%m-%d')
 
     # Depart date (when the flight is scheduled)
-    depart_date = (datetime.today() + timedelta(days=21)).strftime('%Y-%m-%d') 
+    depart_date = "2025-03-28"
 
     params = {
         "fromEntityId": "BLR",
