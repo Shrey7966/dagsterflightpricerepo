@@ -28,7 +28,8 @@ def fetch_flight_prices():
         "toEntityId": "JFK",
         "departDate": depart_date,
         "currency": "INR",
-        "cabinClass": "economy"
+        "cabinClass": "economy",
+        "stops":"direct,1stop,2stops"
     }
     
     response = requests.get(url, headers=headers, params=params)
